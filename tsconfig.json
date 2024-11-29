@@ -1,0 +1,32 @@
+// {
+//   "type": "module",
+//   "compilerOptions": {
+//     "target": "ESNext",
+//     "module": "CommonJS",
+//     "esModuleInterop": true,
+//     "skipLibCheck": true,
+//     "moduleResolution": "node",
+//     "resolveJsonModule": true,
+//     "strictNullChecks": false
+//   },
+//   "include": ["tests/**/*spec.ts"],
+//   "exclude": ["node_modules"]
+// }
+
+{
+  "type": "module",
+  "compilerOptions": {
+    "lib": ["es2022", "DOM"],
+    "types": ["node", "@playwright/test"],
+    "target": "es2022",
+    "module": "commonjs",
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
+    "sourceMap": true,
+    "strictNullChecks": false,
+    "moduleResolution": "Node"
+  },
+  "ts-node": {
+    "require": ["tsconfig-paths/register"]
+  }
+}
