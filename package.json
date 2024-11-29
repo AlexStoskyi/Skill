@@ -1,0 +1,27 @@
+{
+  "name": "skillibrium",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "format": "prettier --write .",
+    "script": "npx playwright test",
+    "ui": "npx playwright test --ui"
+  },
+  "keywords": [
+    "automation",
+    "testing",
+    "playwright",
+    "typescript",
+    "faker"
+  ],
+  "author": "Oleksandr Stotskyi",
+  "license": "ISC",
+  "description": "Automated testing framework using Playwright and TypeScript.",
+  "devDependencies": {
+    "@faker-js/faker": "^9.2.0",
+    "@playwright/test": "^1.49.0",
+    "@types/node": "^22.10.1",
+    "@dotenvx/dotenvx": "^1.25.1"
+  },
+  "dependencies": {}
+}
