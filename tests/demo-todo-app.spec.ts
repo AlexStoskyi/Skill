@@ -1,5 +1,4 @@
 import { test } from "../fixtures/fixtures";
-import mailAPI from "../api/mailsac/mailsac.api";
 
 test.beforeEach(async ({ page, baseURL }) => {
   await page.goto(baseURL!);

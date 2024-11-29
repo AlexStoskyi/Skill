@@ -2,7 +2,7 @@ import { EmailPage } from "../pages/emailPage";
 import { LoginPage } from "../pages/loginPage";
 import { MainPage } from "../pages/mainPage";
 import { test as base, APIRequestContext } from "@playwright/test";
-import mailAPI from "../api/mailsac/mailsac.api";
+import MailsacAPI from "../api/mailsac/mailsac.api";
 
 export {
   expect,
@@ -21,7 +21,7 @@ export type MyFixtures = {
   mainPage: MainPage;
   emailPage: EmailPage;
   loginPage: LoginPage;
-  mailAPI: typeof mailAPI;
+  mailAPI: MailsacAPI;
 };
 
 export const test = base.extend<MyFixtures>({
@@ -37,7 +37,17 @@ export const test = base.extend<MyFixtures>({
     await use(new LoginPage(page));
   },
 
-  mailAPI: async ({}, use) => {
+  mailAPI: async ({ request }, use) => {
+    const mailAPI = new MailsacAPI(request);
     await use(mailAPI);
   },
 });
+
+// export const api = base.extend<{
+//   mailAPI: MailsacAPI; // Тип інстанції класу
+// }>({
+//   mailAPI: async ({ request }, use) => {
+//     const mailAPI = new MailsacAPI(request); // Створюємо інстанцію класу
+//     await use(mailAPI); // Передаємо інстанцію у fixtures
+//   },
+// });
