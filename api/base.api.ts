@@ -42,22 +42,14 @@ export default class BaseAPI {
         await setTimeout(timeout);
 
         if (i === retriesNumber - 1) {
-          this.logToConsole(
-            `Error: ${requestName}`,
-            await response.json(),
-            "error"
-          );
+          this.logToConsole(`Error: ${requestName}`, await response.json());
           throw error;
         }
       }
     }
   }
 
-  protected logToConsole(
-    body: string | object,
-    requestName: string,
-    level = "debug"
-  ) {
+  protected logToConsole(body: string | object, requestName: string) {
     console.log(`${requestName} ==> ${JSON.stringify(body, undefined, 0)}`);
   }
 }

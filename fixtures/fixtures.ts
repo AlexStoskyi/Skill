@@ -5,7 +5,7 @@ import { test as base, APIRequestContext } from "@playwright/test";
 import MailsacAPI from "../api/mailsac/mailsac.api";
 import { BasePage } from "../pages/page";
 import { MyProfilePage } from "../pages/myProfilePage";
-import { TextHelper } from "../helper/testHelper";
+import { RandomHelper } from "../helper/randomHelper";
 import { ToDoPage } from "../pages/toDoPage";
 
 export {
@@ -28,7 +28,7 @@ export type MyFixtures = {
   mailAPI: MailsacAPI;
   basePage: BasePage;
   myProfilePage: MyProfilePage;
-  textHelper: TextHelper;
+  randomHelper: RandomHelper;
   toDoPage: ToDoPage;
 };
 
@@ -57,8 +57,8 @@ export const test = base.extend<MyFixtures>({
     await use(new ToDoPage(page));
   },
 
-  textHelper: async ({}, use) => {
-    await use(new TextHelper());
+  randomHelper: async ({}, use) => {
+    await use(new RandomHelper());
   },
 
   mailAPI: async ({ request }, use) => {

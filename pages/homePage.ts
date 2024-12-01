@@ -1,4 +1,3 @@
-import expect from "@playwright/test";
 import { BasePage } from "./page";
 
 export class HomePage extends BasePage {

@@ -1,4 +1,3 @@
-import { setTimeout } from "timers/promises";
 import { BasePage } from "./page";
 
 export class ToDoPage extends BasePage {
@@ -62,17 +61,16 @@ export class ToDoPage extends BasePage {
     await super.fillData(this.minuteInput, i);
   }
 
-  async chooseDueData(i: number = 0) {
+  async chooseDueData(i = 0) {
     await super.waitForElement(this.dueDataList.nth(i));
     await this.dueDataList.nth(i).click({ force: true });
-    // await super.clickElement(this.dueDataList.nth(i));
   }
 
   async clickOnDueDataField() {
     await super.clickElement(this.dueDataField);
   }
 
-  async clickOnAssignedToItems(i: number = 0) {
+  async clickOnAssignedToItems(i = 0) {
     await super.clickElement(this.assignedToItems.nth(i));
   }
 
@@ -88,7 +86,7 @@ export class ToDoPage extends BasePage {
     return super.getElementText(this.newTaskFormTitle);
   }
 
-  async clickOnNewDropDownItem(i: number = 0) {
+  async clickOnNewDropDownItem(i = 0) {
     await super.clickElement(this.newDropDown.nth(i));
     await super.waitForElement(this.newTaskFormTitle);
   }

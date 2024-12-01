@@ -1,6 +1,6 @@
 import { faker } from "@faker-js/faker";
 
-export class TextHelper {
+export class RandomHelper {
   generateLastName(): string {
     return faker.person.lastName();
   }
