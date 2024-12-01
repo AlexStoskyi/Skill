@@ -1,6 +1,4 @@
-# Playwright Template
-
-This repository contains the Playwright framework template. You can use it as the basis of your project.
+# Skillibrium
 
 ## Tech stack
 
