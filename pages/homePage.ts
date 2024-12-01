@@ -10,7 +10,7 @@ export class HomePage extends BasePage {
   }
 
   get welcomeUserName() {
-    return this.page.locator(`[class="content-name"] span`);
+    return this.page.locator(`[class=content-name] span`);
   }
 
   get userDropDownBtn() {

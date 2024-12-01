@@ -29,22 +29,9 @@ test.describe("Tests for Skillibrium Learn", () => {
       await basePage.openHTML(html.replaceAll('target="_blank"', ""), {
         htmlTitle: `Confirmation email for ${userEmail}`,
       });
-
-      await emailPage.clickBtnLoginTo();
-      await loginPage.fillEmailInput(userEmail);
-      await loginPage.clickOnSendMagicLinkBtn();
     });
 
     await expect(loginPage.successPopUp).toBeVisible();
-
-    const html = await mailAPI.getMsgHtmlBodyBySubject(
-      userEmail,
-      `Confirmation email for ${userEmail}`,
-      { attemptTimeout: 10000 }
-    );
-    await basePage.openHTML(html.replaceAll('target="_blank"', ""), {
-      htmlTitle: `Confirmation email for ${userEmail}`,
-    });
 
     await test.step('Click the "Login to Skillibrium" button', async () => {
       await emailPage.clickBtnLoginTo();
