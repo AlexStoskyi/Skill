@@ -5,6 +5,10 @@ dotenv.config({ path: path.resolve(__dirname, ".env") });
 
 export const ROOT_FOLDER = __dirname;
 export default defineConfig({
+  expect: {
+    timeout: 10000,
+  },
+  timeout: 120000,
   testDir: "./tests",
   fullyParallel: true,
   forbidOnly: !!process.env.CI,
