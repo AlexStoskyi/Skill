@@ -4,7 +4,7 @@
 
 - [NodeJS](https://nodejs.org/)
 - [TypeScript](https://www.typescriptlang.org/)
-- [Playwright](https://playwright.dev/);
+- [Playwright](https://playwright.dev/)
 
 ## Install
 
@@ -62,7 +62,7 @@ When running the `playwright.yml` workflow, the HTML report is deployed to the `
 
 ## GitHub Actions
 
-In this reposetori, we use GitHub Actions to run all the tests and then deploy the report in the `reports` branch.
+In this reposetori, we use GitHub Actions to run all the tests and then deploy the report in the `gh-pages` branch.
 
 ## Features
 

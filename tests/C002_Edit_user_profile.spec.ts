@@ -4,7 +4,7 @@ import endpoint from "../constants/endpoints.constants.json";
 
 test.describe("Tests for Skillibrium Learn", () => {
   test.beforeEach(async ({ request, loginPage }) => {
-    await loginPage.login(process.env.USER_EMAIL!, request);
+    await loginPage.login(process.env.SECOND_USER_EMAIL!, request);
   });
 
   test("Edit the user profile", async ({

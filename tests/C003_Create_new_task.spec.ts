@@ -3,7 +3,7 @@ import successMsg from "../constants/successMsg.json";
 
 test.describe("Tests for Skillibrium Learn", () => {
   test.beforeEach(async ({ request, loginPage }) => {
-    await loginPage.login(process.env.USER_EMAIL!, request);
+    await loginPage.login(process.env.THIRD_USER_EMAIL!, request);
   });
 
   test("Create new task", async ({ homePage, randomHelper, toDoPage }) => {

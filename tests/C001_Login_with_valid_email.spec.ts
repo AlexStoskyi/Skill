@@ -14,7 +14,7 @@ test.describe("Tests for Skillibrium Learn", () => {
     basePage,
     emailPage,
   }) => {
-    const userEmail = process.env.USER_EMAIL!;
+    const userEmail = process.env.FIRST_USER_EMAIL!;
 
     await test.step("Login with valid email", async () => {
       await loginPage.fillEmailInput(userEmail);
