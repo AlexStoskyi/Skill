@@ -29,7 +29,7 @@ test.describe("Tests for Skillibrium Learn", () => {
         htmlTitle: `Confirmation email for ${userEmail}`,
       });
 
-      await expect(loginPage.successPopUp).toBeVisible();
+      await expect(await loginPage.successPopUp).toBeVisible();
     });
 
     await test.step('Click the "Login to Skillibrium" button', async () => {
