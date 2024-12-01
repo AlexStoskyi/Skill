@@ -42,7 +42,7 @@ export default class BaseAPI {
         await setTimeout(timeout);
 
         if (i === retriesNumber - 1) {
-          this.logToConsole(`Error: ${requestName}`, await response.json());
+          this.logToConsole(await response.json(), `Error: ${requestName}`);
           throw error;
         }
       }
