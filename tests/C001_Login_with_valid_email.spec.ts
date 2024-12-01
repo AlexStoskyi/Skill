@@ -1,12 +1,11 @@
 import { expect, test } from "../fixtures/fixtures";
-import successMsg from "../constants/successMsg.json";
 
 test.beforeEach(async ({ page, baseURL }) => {
   await page.goto(`${baseURL!}` + "/Login");
 });
 
 test.describe("Tests for Skillibrium Learn", () => {
-  test("Edit the user profile", async ({
+  test("Login", async ({
     homePage,
     baseURL,
     loginPage,
@@ -29,9 +28,9 @@ test.describe("Tests for Skillibrium Learn", () => {
       await basePage.openHTML(html.replaceAll('target="_blank"', ""), {
         htmlTitle: `Confirmation email for ${userEmail}`,
       });
-    });
 
-    await expect(loginPage.successPopUp).toBeVisible();
+      await expect(loginPage.successPopUp).toBeVisible();
+    });
 
     await test.step('Click the "Login to Skillibrium" button', async () => {
       await emailPage.clickBtnLoginTo();
