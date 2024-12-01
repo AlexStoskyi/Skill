@@ -1,0 +1,6 @@
+{
+  "save": "Your profile has been saved",
+  "toDo": "To Do",
+  "newTaskTitle": "New Task",
+  "newTaskSuccess": "The ${name} has been successfully created."
+}
