@@ -5,7 +5,6 @@ on:
   pull_request:
     branches: [main, master]
   workflow_dispatch:
-
 jobs:
   test:
     timeout-minutes: 60
@@ -15,6 +14,11 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: lts/*
+      - name: Set up environment variables
+        run: |
+          echo "USER_EMAIL=${{ secrets.USER_EMAIL }}" >> $GITHUB_ENV
+          echo "BASE_URL=${{ secrets.BASE_URL }}" >> $GITHUB_ENV
+          echo "MAILSAC_API_TOKEN=${{ secrets.MAILSAC_API_TOKEN }}" >> $GITHUB_ENV
       - name: Install dependencies
         run: npm ci
       - name: Install Playwright Browsers
@@ -40,11 +44,7 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: lts/*
-      - name: Set up environment variables
-        run: |
-          echo "USER_EMAIL=${{ secrets.USER_EMAIL }}" >> $GITHUB_ENV
-          echo "BASE_URL=${{ secrets.BASE_URL }}" >> $GITHUB_ENV
-          echo "MAILSAC_API_TOKEN=${{ secrets.MAILSAC_API_TOKEN }}" >> $GITHUB_ENV
+
       - name: Download Playwright Report Artifact
         uses: actions/download-artifact@v4
         with:
