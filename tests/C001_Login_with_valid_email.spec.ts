@@ -19,6 +19,8 @@ test.describe("Tests for Skillibrium Learn", () => {
       await loginPage.fillEmailInput(userEmail);
       await loginPage.clickOnSendMagicLinkBtn();
 
+      await expect(await loginPage.successPopUp).toBeVisible();
+
       const html = await mailAPI.getMsgHtmlBodyBySubject(
         userEmail,
         `Confirmation email for ${userEmail}`,
@@ -28,8 +30,6 @@ test.describe("Tests for Skillibrium Learn", () => {
       await basePage.openHTML(html.replaceAll('target="_blank"', ""), {
         htmlTitle: `Confirmation email for ${userEmail}`,
       });
-
-      await expect(await loginPage.successPopUp).toBeVisible();
     });
 
     await test.step('Click the "Login to Skillibrium" button', async () => {
