@@ -62,4 +62,12 @@ When running the `playwright.yml` workflow, the HTML report is deployed to the `
 
 ## GitHub Actions
 
-In this template, we use GitHub Actions to run all the tests and then deploy the report in the `reports` branch.
+In this reposetori, we use GitHub Actions to run all the tests and then deploy the report in the `reports` branch.
+
+## Features
+
+- Flexible Tech Stack: TypeScript and Playwright provide a modern approach to test automation.
+- Automatic Report Deployment: Playwright reports are easily accessible through CI/CD integration.
+- Simple Test Execution: Clearly structured commands for both headless and headed modes.
+
+#### If you have any questions or suggestions, feel free to create new Issues in the repository. Happy testing! 🚀
