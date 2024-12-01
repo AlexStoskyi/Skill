@@ -7,8 +7,8 @@ export class BasePage {
     this.page = page;
   }
 
-  async open(url = "/"): Promise<void> {
-    await this.page.goto(url);
+  async open(url = ""): Promise<void> {
+    await this.page.goto(`/${url}`);
   }
 
   async clickElement(element: Locator): Promise<void> {

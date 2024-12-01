@@ -1,10 +1,11 @@
 import { expect, test } from "../fixtures/fixtures";
-
-test.beforeEach(async ({ page, baseURL }) => {
-  await page.goto(`${baseURL!}` + "/Login");
-});
+import endpoint from "../constants/endpoints.constants.json";
 
 test.describe("Tests for Skillibrium Learn", () => {
+  test.beforeEach(async ({ loginPage }) => {
+    await loginPage.open();
+  });
+
   test("Login", async ({
     homePage,
     baseURL,
@@ -15,11 +16,11 @@ test.describe("Tests for Skillibrium Learn", () => {
   }) => {
     const userEmail = process.env.USER_EMAIL!;
 
-    test.step("Login with valid email", async () => {
+    await test.step("Login with valid email", async () => {
       await loginPage.fillEmailInput(userEmail);
       await loginPage.clickOnSendMagicLinkBtn();
 
-      await expect(await loginPage.successPopUp).toBeVisible();
+      await expect(loginPage.successPopUp).toBeVisible();
 
       const html = await mailAPI.getMsgHtmlBodyBySubject(
         userEmail,
@@ -34,8 +35,11 @@ test.describe("Tests for Skillibrium Learn", () => {
 
     await test.step('Click the "Login to Skillibrium" button', async () => {
       await emailPage.clickBtnLoginTo();
+    });
+
+    await test.step("Verify that the user is logged in", async () => {
       await expect(homePage.userDropDownBtn).toBeVisible();
-      await expect(loginPage.page).toHaveURL(`${baseURL}` + "/Home");
+      await expect(homePage.page).toHaveURL(`${baseURL}/${endpoint.home}`);
     });
   });
 });

@@ -5,7 +5,6 @@
   "scripts": {
     "test": "npx playwright test",
     "test:ui": "npx playwright test --ui",
-    "report:html:show": "npx playwright show-report reports/html",
     "prettier:write": "prettier --write ."
   },
   "keywords": [

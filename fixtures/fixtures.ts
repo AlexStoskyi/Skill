@@ -1,12 +1,12 @@
-import { EmailPage } from "../pages/emailPage";
-import { LoginPage } from "../pages/loginPage";
-import { HomePage } from "../pages/homePage";
+import { EmailPage } from "../pages/email.page";
+import { LoginPage } from "../pages/login.page";
+import { HomePage } from "../pages/home.page";
 import { test as base, APIRequestContext } from "@playwright/test";
 import MailsacAPI from "../api/mailsac/mailsac.api";
 import { BasePage } from "../pages/page";
-import { MyProfilePage } from "../pages/myProfilePage";
-import { RandomHelper } from "../helper/randomHelper";
-import { ToDoPage } from "../pages/toDoPage";
+import { MyProfilePage } from "../pages/myProfile.page";
+import { RandomHelper } from "../helper/random.helper";
+import { ToDoPage } from "../pages/toDo.page";
 
 export {
   expect,
@@ -62,7 +62,6 @@ export const test = base.extend<MyFixtures>({
   },
 
   mailAPI: async ({ request }, use) => {
-    const mailAPI = new MailsacAPI(request);
-    await use(mailAPI);
+    await use(new MailsacAPI(request));
   },
 });

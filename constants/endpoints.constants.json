@@ -1,5 +1,5 @@
 {
-  "homeURL": "/Home",
-  "myProfileURL": "/MyProfile",
-  "loginURL": "/Login"
+    "home": "Skillibrium/Home",
+    "myProfile": "Skillibrium/MyProfile",
+    "login": "Skillibrium/Login"
 }
