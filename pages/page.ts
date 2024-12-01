@@ -1,12 +1,7 @@
-import {
-  FileChooser,
-  Locator,
-  Page,
-  Page as PlaywrightPage,
-} from "@playwright/test";
+import { FileChooser, Locator, test, Page } from "@playwright/test";
 
 export class BasePage {
-  protected page: Page;
+  public page: Page;
 
   constructor(page: Page) {
     this.page = page;
@@ -59,5 +54,19 @@ export class BasePage {
 
   async getElementCount(element: Locator): Promise<number> {
     return element.count();
+  }
+
+  async openHTML(
+    html: string,
+    options?: { htmlTitle?: string }
+  ): Promise<void> {
+    const { htmlTitle = "HTML" } = options ?? {};
+    await test.step(`Open the ${htmlTitle}`, async () => {
+      await this.page.evaluate((html) => {
+        const newDoc = document.open("text/html", "replace");
+        newDoc.write(html);
+        newDoc.close();
+      }, html);
+    });
   }
 }

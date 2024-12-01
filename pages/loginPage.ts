@@ -9,8 +9,13 @@ export class LoginPage extends BasePage {
     return this.page.locator(`[class*=btn-primary]`);
   }
 
+  get successPopUp() {
+    return this.page.locator(`[id*=b7-Container]`);
+  }
+
   async clickOnSendMagicLinkBtn() {
     await super.clickElement(this.magicLinkBtn);
+    await super.waitForElement(this.successPopUp);
   }
 
   async fillEmailInput(data: string) {
