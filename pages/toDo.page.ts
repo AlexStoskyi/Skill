@@ -1,3 +1,4 @@
+import { setTimeout } from "timers/promises";
 import { BasePage } from "./page";
 
 export class ToDoPage extends BasePage {
@@ -13,6 +14,10 @@ export class ToDoPage extends BasePage {
     return this.page.locator(
       `[id*="flatpickr-calendar"].open span.flatpickr-day:not([class*="nextMonthDay"]):not([class*="prevMonthDay"])`
     );
+  }
+
+  get schedule() {
+    return this.page.locator(`[id*="flatpickr-calendar"].open`);
   }
 
   get dueDataField() {
@@ -62,16 +67,17 @@ export class ToDoPage extends BasePage {
   }
 
   async chooseDueData(i = 0) {
-    await super.waitForElement(this.dueDataList.nth(i));
     await this.dueDataList.nth(i).click({ force: true });
   }
 
   async clickOnDueDataField() {
     await super.clickElement(this.dueDataField);
+    await super.waitForElement(this.schedule, "visible", 5000);
   }
 
   async clickOnAssignedToItems(i = 0) {
     await super.clickElement(this.assignedToItems.nth(i));
+    await this.page.waitForTimeout(500);
   }
 
   async clickOnAssignedToField() {
