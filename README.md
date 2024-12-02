@@ -43,6 +43,12 @@ npm run test
 - In headed mode (with showing the browser):
 
 ```bash
+npm run test:headed
+```
+
+- In UI mode (interactive interface for selecting and running tests):
+
+```bash
 npm run test:ui
 ```
 
